@@ -1,0 +1,78 @@
+{%extends "base.html"%}
+{%block container%}
+<article id="art">
+	<header>
+		<hgroup>
+			<h1 id="t_art" >Historia.</h1>
+			<h2 id="sub_art">
+			<b>	By: </b>Edson David Delgado Ugarte (<time datetime= " 2008-02 -14 ">publicado.</time>)</h2>
+		</hgroup>
+	</header>
+	<p class="texto">
+		<img src="/static/img/logo.png">
+	La SOCIEDAD CIENTIFICA "DENNIS RITCHIE" DE LA CARRERA DE INGENIERIA DE SISTEMAS DE LA UATF, fue creada en el año 2013 por un pequeño y selecto grupo de estudiantes, entre los cuales se encuentran Edson David Delgado Ugarte, Said Garnica, Luis Roberto Escalier y otros.
+
+Con el fin de formar una Institución que reúna y representa a los estudiantes de la carrera y convirtiéndose en el eje ejecutor y propiciado, se envió al Estudiante Edson Delgado, con el fin de realizar conversaciones con los distintos representantes de la DiCyT, hasta llegar a constituir la Sociedad Científica "Dennis Ritchie".
+<br>
+<br>
+OBJETIVOS
+<br>
+<br>
+
+    Desde su creación de la SCDeR ha trabajado en la búsqueda del cumplimiento cabal de sus objetivos. La defensa del Ejercicio Legal de la futura Profesión, difusión y desarrollo de la Ciencia y Tecnología propiciando cursos de especialización técnica de los ingenieros en diferentes áreas de actualización, mesas redondas y paneles sobre temas relacionados a la profesión, así como también sobre temas técnicos, socio-económicos u otros que sean fundamentales para el crecimiento y desarrollo armónico de nuestra carrera.
+
+    Ha participado y participa activamente en la solución de los problemas regionales dando su aporte técnico a todas las instituciones donde tiene representación permanente.
+	</p>
+		<div style="clear:both;"></div>
+		<footer id="pie_art"><a href="#" id="pie_art" >comentario (<b>0</b>)
+		</a></footer>
+	</article>
+
+	<section id="novedades">
+			<article id="nov_nov">
+				<p class="ult_entrada">NOVEDADES</p>
+			</article>
+		</section>
+		<section id="novedades">
+			<article id="nov_nov">
+				<p class="ult_entrada">ACTIVIDADES RECIENTES</p>
+			</article>
+		</section>
+		<section id="novedades">
+			<article id="nov_nov">
+				<p class="ult_entrada">ULTIMAS NOTICIAS</p>
+			</article>
+		</section>
+
+{%endblock%}
+
+{%block sesion%}
+
+	<h3>Iniciar Sesion</h3>
+	<form action="" method="post" style="text-aling:center;">
+		{% csrf_token %}
+		<table>{{formulario}}</table>
+		<center>
+		<table border="0px" align="center">
+			<tr>
+				<td>
+					<input type="submit" value="Ingresar" class="close" />
+				</td>
+				<td>
+					<input type="reset" value="Cancelar" class="close" />
+				</td>
+			</tr>
+			<tr >
+				<td colspan="2">
+					<a href="/registro/" id="reg">Registrarse...</a>
+				</td>
+			</tr>
+		</table>
+		</center>
+<div style="clear: both;"></div>
+	</form>
+	
+	
+
+
+{%endblock%}

@@ -1,0 +1,37 @@
+{%extends "base.html"%}
+
+
+{% block container %} 
+<div style="clear:both;"></div>
+	<h1>BLOG - ING. SISTEMAS</h1>
+	{% for i in entrada.object_list %}
+	<article class="entrada">
+		<table>
+
+		<tr>
+			<td>
+				<a style="font-size:25px; " href="{% url 'sociedad.apps.blog.views.Entrada' i.id %}" id="pag_entrada" target="_blank">
+					{{ i.titulo }}
+				</a>
+			</td>
+		</tr>
+		
+		<tr><td><time>{{ i.fecha_entrada }}</time></td></tr>
+		<tr><td> <a href="/archivos/{{ i.imagen }}" target="_blank"><img id="img_entrada" src="/archivos/{{ i.imagen }}" ></a>
+		<p>{{ i.comentario }}</p>
+		<p></p>
+		</td></tr>
+		</table>
+	</article>
+	{% endfor %}
+
+	<nav>
+		{% if entrada.has_previous %}
+			<a href="?page={{ entrada.previous_page_number }}">Página anterior</a>
+		{% endif %}
+		<p>Página {{ entrada.number }} de {{ entrada.paginator.num_pages }}</p>
+		{% if entrada.has_next %}
+		<a href="?page={{ entrada.next_page_number }}">Página siguiente</a>
+		{% endif %}
+	</nav>
+{% endblock %}

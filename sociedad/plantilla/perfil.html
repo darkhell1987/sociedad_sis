@@ -1,0 +1,10 @@
+{%extends "base.html"%}
+
+{%block container%}
+<form action="" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ entradas.as_p }}
+	<p><input type="submit" value="Enviar"></p>
+</form>
+
+{%endblock%}

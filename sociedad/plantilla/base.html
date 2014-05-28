@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html leng="es">
+<head>
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+	<script type="text/javascript" src="/static/js/cursor.js"></script>
+	<script src="/static/js/jquery-1.9.1.js"></script>
+	<link rel="stylesheet" href="/static/css/demo.css">
+	<link rel="stylesheet" href="/static/css/login.css">
+	<script>
+		$(document).ready(function() {
+			$('.button').click(function() {
+				type = $(this).attr('data-type');
+				$('.overlay-container').fadeIn(function() {
+				window.setTimeout(function(){
+					$('.window-container.'+type).addClass('window-container-visible');
+				}, 100);
+				});
+			});
+			$('.close').click(function() {
+				$('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
+			});
+		});
+	</script>
+	<title></title>
+</head>
+<body>
+<header>
+	<div id="logeo">
+	{% if user.is_authenticated %}
+						<form action="/cerrar/">
+						<marquee style="color:cyan;">Bienvenido:
+							{% block ingresado%}
+							{% endblock %}
+						</marquee>
+							<input type="submit" value="Cerar Sesion" class="button" data-type="zoomin" size="25px" />
+						</form>
+						
+				{% else %}
+		<input type="button" value="Iniciar Sesion" class="button" data-type="zoomin" />
+		<div class="overlay-container">
+			<div class="window-container zoomin">
+					{%block sesion%}		
+					{%endblock%}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	<div id="cabeza">
+		<a href="/" id="borrar"><div id="logo"> </div></a>
+		<h1 id="titulos">Sociedad Cienfitica</h1>
+		<h2  id="subtitulo">" D e n n i s   R i t c h i e "</h2>
+	</div>
+	<div id="margen"></div>
+	<div style="clear:both;"></div>
+</header>
+	<div id="m1">
+	<nav id="menu">
+		<ul id="ul">
+			<li id="submenu">
+				<a href="/" id="aa">INICIO</a>
+			</li>
+			<li id="submenu">
+				<a href="/noticias/" id="aa">NOTICIAS</a>
+			</li>
+			<li id="submenu">
+				<a href="/biblioteca/" id="aa">BIBLIOTECA</a>
+			</li>
+			<li id="submenu">
+				<a href="/blog/" id="aa">BLOG</a>
+			</li>
+			<li id="submenu">
+				<a href="/acercade/" id="aa">ACERCA DE</a>
+			</li>
+			{% if user.is_authenticated %}
+			<li id="submenu">
+				<a href="/perfil/" id="aa">PERFIL</a>
+			</li>
+			{% endif %}
+		</ul>
+	</nav>
+	</div>
+	<div style="clear:both;"></div>
+
+<section id="cuerpo">
+			{%block container%}
+			{%endblock%}
+</section>
+
+<aside id="bloque">
+	<blockquote> MUNU PRINCIPAL</blockquote>
+	<p id="t_bloque">
+			<nav>
+				<ul id="ul_b">
+					<li >
+						<a href="/">INICIO</a>
+					</li>
+					<li >
+						<a href="/noticias/">NOTICIAS</a>
+					</li>
+					<li >
+						<a href="/biblioteca/">BIBLIOTECA</a>
+					</li>
+					<li >
+						<a href="/blog/">BLOG</a>
+					</li>
+					<li >
+						<a href="/acercade/">ACERCA DE</a>
+					</li>
+					{% if user.is_authenticated %}
+					<li >
+						<a href="/perfil/">PERFIL</a>
+					</li>
+					{% endif %}
+				</ul>
+			</nav>
+	</p>
+	<blockquote> PUBLICIDAD</blockquote>
+</aside>
+<div style="clear:both;"></div>
+
+
+<footer id="pie">
+	<small id="pie_e">Derechos Reservado &copy 2010 -2014</small>
+</footer>
+	
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+{%extends "base.html"%}
+
+{%block container%}
+<div id="registro">
+	<h1>Registro de Nuevo Usuario</h1>
+	<form action="" method="post">
+		{% csrf_token %}
+		{{formulario}}
+		<input type="submit" value="Guardar"/>
+	</form>
+</div>
+{%endblock%}

@@ -1,0 +1,31 @@
+{%extends "base.html"%}
+{% block container %} 
+	<article>
+		
+		<h3>{{ entrada.titulo }}</h3>
+		<time>{{ entrada.fecha_entrada }}</time>
+		<img id="img_entrada" src="/archivos/{{ entrada.imagen }}" >
+		<p>{{ entrada.comentario }}</p>
+
+	</article>
+
+	{% if Comentario %}
+		<p>Comentarios:</p>
+	{% endif %}
+	<ul>
+	{% for comentario in comentario %}
+		<li>{{ comentario.autor }} - {{ comentario.fechacreado }}</li>
+		<ul>
+			<li>{{ comentario.mensaje|linebreaks }}</li>
+		</ul>
+		
+	{% endfor %}
+	</ul>
+	<form action="{% url 'sociedad.apps.blog.views.poncomentario' entrada.pk %}" method="POST">
+	{% csrf_token %}
+		<p>Nombre: {{ form.autor }}</p>
+		<p>Mensaje: {{ form.mensaje }}</p>
+		<p><input type="submit" value="Enviar"></p>
+	</form>
+
+{% endblock %}
